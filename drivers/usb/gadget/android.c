@@ -198,8 +198,7 @@ static void android_enable(struct android_dev *dev)
 	BUG_ON(!dev->disable_depth);
 
 	if (--dev->disable_depth == 0) {
-		usb_add_config(cdev, &android_config_driver,
-					android_bind_config);
+		usb_add_config(cdev, &android_config_driver);
 		usb_gadget_connect(cdev->gadget);
 	}
 }
